@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+
+  db:
+    image: mysql
+    restart: always
+    env_file:
+      - .myapp.env
+    container_name: mysql
+    volumes:
+      - mysql-test:/my/own/datadir
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis
+    restart: always
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  celery:
+    build: .
+    command: celery -A app_core worker -E -l INFO -n files@%h -c 5
+    restart: always
+    container_name: celery
+    env_file:
+      - .myapp.env
+    volumes:
+      - ./files_project:/usr/src/app
+      - test-data:/media_test/
+      - shared-data:/media/
+    depends_on:
+      - app
+
+  flower:
+    build: .
+    command: celery -A app_core flower
+    restart: always
+    container_name: flower
+    env_file:
+      - .myapp.env
+    ports:
+      - "5555:5555"
+    depends_on:
+      - app
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: my-app
+    env_file:
+      - .myapp.env
+    volumes:
+      - ./files_project:/usr/src/app
+      - test-data:/media_test/
+      - shared-data:/media/
+      - staticfiles:/staticfiles/
+    ports:
+      - "8000:8000"
+    restart: always
+    depends_on:
+      - redis
+      - db
+
+volumes:
+  shared-data:
+  test-data:
+  staticfiles:
+  mysql-test:
