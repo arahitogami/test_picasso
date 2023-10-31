@@ -38,7 +38,7 @@
     
 
 ## Author
-[Kuzmenko Nikita](https://github.com/Arahit0gami)
+[Kuzmenko Nikita](https://github.com/arahitogami)
 
 ## P.S.
 На заметку тем, кто будет смотреть это тестовое задание. 
