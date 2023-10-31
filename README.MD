@@ -6,9 +6,11 @@
 ## Built With
 
 * [![Docker][docker.com]][Docker-url]
+* [![Python][Python.org]][Python-url]
 * [![MySQL][mysql.org]][mysql-url]
 * [![Django][djangoproject.com]][Django-url]
-* [![Python][Python.org]][Python-url]
+* [![Celery][docs.celeryq.dev]][celery-url]
+* [![Redis][redis.io]][redis-url]
 
 
 ## Endpoints:
@@ -38,6 +40,9 @@
 ## Author
 [Kuzmenko Nikita](https://github.com/Arahit0gami)
 
+## P.S.
+На заметку тем, кто будет смотреть это тестовое задание. 
+Обратной связи от компании (Code Review) не поступало, поэтому я не знаю, насколько хорошо или плохо было выполнено задание.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -49,4 +54,7 @@
 [mysql-url]: https://www.mysql.com/
 [docker.com]: https://img.shields.io/badge/Docker--compose-3.8-green?style=plastic&logo=docker
 [Docker-url]: https://docker.com
-
+[docs.celeryq.dev]: https://img.shields.io/badge/Celery-5.3.4-green?style=plastic&logo=celery&logoColor=green
+[celery-url]: https://docs.celeryq.dev
+[redis.io]: https://img.shields.io/badge/Redis-4.6.0-green?style=plastic&logo=redis
+[redis-url]: https://redis.io/
